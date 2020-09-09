@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyLocation</string>
+    <string name="save_location">Save Location</string>
+    <string name="location_name">Location Name</string>
+    <string name="location_description">Location Description</string>
+    <string name="show_map">Show On Map</string>
+    <string name="location_list">Location List</string>
+</resources>
