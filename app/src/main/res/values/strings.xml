@@ -5,4 +5,5 @@
     <string name="location_description">Location Description</string>
     <string name="show_map">Show On Map</string>
     <string name="location_list">Location List</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

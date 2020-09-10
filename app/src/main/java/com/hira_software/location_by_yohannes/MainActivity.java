@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         addLocation=findViewById(R.id.add_location);
         locationName=findViewById(R.id.locationName);
         locationDescription=findViewById(R.id.locationDesctiption);
-
         locationViewModel= new ViewModelProvider(this).get(LocationViewModel.class);
 
 
@@ -62,13 +61,21 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
                 final String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
                         .format(new Date());
-                LocationModel locationModel=new LocationModel();
-                locationModel.setLocationName(locationName.getText().toString());
-                locationModel.setLocationDescription(locationDescription.getText().toString());
-                locationModel.setLatitude(lat);
-                locationModel.setLongitude(lang);
-                locationModel.setCaptureTime(date);
-                locationViewModel.insert(locationModel);
+                if(locationName.getText().toString().equals("") || locationDescription.getText().toString().equals("")){
+                    Toast.makeText(MainActivity.this, "Empty Name Or Description", Toast.LENGTH_SHORT).show();
+
+                }else{
+                    LocationModel locationModel=new LocationModel();
+                    locationModel.setLocationName(locationName.getText().toString());
+                    locationModel.setLocationDescription(locationDescription.getText().toString());
+                    locationModel.setLatitude(lat);
+                    locationModel.setLongitude(lang);
+                    locationModel.setCaptureTime(date);
+                    locationViewModel.insert(locationModel);
+                    Toast.makeText(MainActivity.this, "Location Registered", Toast.LENGTH_LONG).show();
+                    locationDescription.setText("");
+                    locationName.setText("");
+                }
 
 
 
@@ -139,7 +146,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
-
     public void locationList(View view) {
         Intent intent=new Intent(view.getContext(),LocationList.class);
         view.getContext().startActivity(intent);

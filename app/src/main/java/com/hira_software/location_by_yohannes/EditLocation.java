@@ -37,7 +37,7 @@ public class EditLocation extends AppCompatActivity {
     }
 
     public void showOnmap(View view) {
-       Intent intent=new Intent(view.getContext(),Map.class);
+       Intent intent=new Intent(view.getContext(),MapsActivity.class);
         view.getContext().startActivity(intent);
     }
 }
